@@ -1,0 +1,10 @@
+<div>
+  <label>{{title}}</label>
+  <select class="form-select"
+          [ngModel]="selectedItem"
+          (change)="onSelected($event)">
+    <option *ngFor="let item of listItems" [value]="item.id">
+      {{ item.name }}
+    </option>
+  </select>
+</div>

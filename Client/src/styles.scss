@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "node_modules/bootswatch/dist/darkly/variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootswatch/dist/darkly/bootswatch";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+@import 'node_modules/ngx-toastr/toastr';
+
+@import "https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css";
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+label.xng-breadcrumb-trail {
+  color: #375a7f;
+}

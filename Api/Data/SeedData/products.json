@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "Tụ 275V 104-0.1uF",
+    "Description": "Tụ 275V 104-0.1uF được sử dụng trong các mạch điện tử: Mạch lọc nguồn, mạch tạo dao động,... Tụ có tác dụng cho điện áp xoay chiều AC đi qua và chắn điện áp một chiều DC. Ngoài ra, tụ còn có tác dụng lọc nguồn, lọc nhiễu,...",
+    "Price": 2000,
+    "Image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/228/168/products/sp1-56aa0f8f-1e0f-4333-9948-622f9a0a443e.jpg?v=1591158691670",
+    "CategoryId": 1
+  },
+  {
+    "Name": "K3565 MOSFET 5A/900V N-CH",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor libero in risus varius lobortis. Integer posuere euismod turpis, eu tincidunt ligula efficitur sit amet. Vivamus eros nunc, lobortis in dapibus non, aliquam et orci. Maecenas maximus, elit sed iaculis suscipit, tellus odio vehicula nunc, ut placerat tellus augue quis mauris. Ut sed molestie est. Aliquam non magna ut nibh cursus porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur facilisis ante id purus ornare, at hendrerit massa facilisis. Suspendisse sit amet ipsum nec erat placerat tristique. Praesent viverra massa sem, quis dignissim metus volutpat ut. Sed vel pretium dolor, id mattis arcu. Morbi consectetur massa sit amet tellus rutrum efficitur. ",
+    "Price": 14000,
+    "Image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/228/168/products/k3565-mosfet.jpg?v=1580808768903",
+    "CategoryId": 1
+  },
+  {
+    "Name": "MOSFET IRF730 TO-220 5A/400V N-CH",
+    "Description": "MOSFET IRF730 TO-220 5A/400V N-CH là mosfet ngượ hay cmosfet kênh N. MOSFET IRF730 là Transistor hiệu ứng trường (Metal Oxide Semiconductor Field Effect Transistor) là một Transistor đặc biệt có hoạt động và cấu tạo khác với các loại Transistor thông thường. Mosfet thường có công suất lớn hơn rất nhiều so với BJT, MOSFET IRF730 TO-220 5A/400V có công suất là 74W. Đối với tín hiệu 1 chiều thì nó coi như là 1 khóa.",
+    "Price": 12000,
+    "Image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/228/168/products/mosfet-irf730-1.jpg?v=1585369683180",
+    "CategoryId": 2
+  },
+  {
+    "Name": "Relay Songle SLA 30A - 5V 6 Chân",
+    "Description": "Relay songle SLA 5V 30A 6 chân là rơ le được dùng để chuyển đổi điện của máy sưởi điện, máy điều hòa, các thiết bị điện gia đình.",
+    "Price": 21000,
+    "Image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/228/168/products/relay-songle-sla-30a-5v-6-chan.jpg?v=1555994158933",
+    "CategoryId": 2
+  },
+  {
+    "Name": "Nút Nhấn 2 Chân Vuông 90 Độ 6x6x9.5mm",
+    "Description": "Nút Nhấn 2 Chân Vuông 90 Độ 6x6x9.5mm được sử dụng làm công tắc điều khiển mạch cho các mạch điện tử, làm nút nhấn tạo xung hay các nút nhấn thay đổi trạng thái tín hiệu,... ",
+    "Price": 1000,
+    "Image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/228/168/products/nut-nhan-2-chan-vuong-goc-1.jpg?v=1603851558590",
+    "CategoryId": 3
+  },
+  {
+    "Name": "Công Tắc Điện 3 Pha Cho Thiết Bị Điện KH-305 AC 250V-30A 380V-20A",
+    "Description": "Công Tắc Điện 3 Pha Cho Thiết Bị Điện KH-305 AC 250V-30A 380V-20A  là một thiết bị được dùng để điều khiển động cơ ba pha trực tiếp, không cần sử dụng công tắc từ. Được ứng dụng rộng rãi trong các thiết bị cơ khí, máy dệt.",
+    "Price": 75000,
+    "Image": "https://bizweb.dktcdn.net/100/228/168/files/cong-tac-dien-3-pha-cho-thiet-bi-dien-kh-305-2.jpg?v=1616122475015",
+    "CategoryId": 3
+  },
+  {
+    "Name": "Led Công Suất 50W Vàng Ấm 12VDC",
+    "Description": "Led Công Suất 50W Vàng Ấm 12VDC là loại Led chiếu sáng công suất lớn đang được sủ dụng rất rộng rãi trên thị trường bởi khả năng tiết kệm năng lượng, cường độ chiếu sáng mạnh và tuổi thọ lâu sài của nó.",
+    "Price": 65000,
+    "Image": "https://bizweb.dktcdn.net/100/228/168/files/led-cong-suat-50w-vang-am-2.jpg?v=1575885829177",
+    "CategoryId": 4
+  },
+  {
+    "Name": "Dây 50 Đèn Led Pháo Hoa Full Màu",
+    "Description": "Dây 50 Đèn Led Pháo Hoa Full Màu là sản phẩm được thiết kế, chế tạo thành từng bóng riêng biệt và được bọc bởi lớp vỏ nhựa trong có khả năng chống nước, hoạt động tốt ở kể cả thời tiết khắc nhiệt. Led full color  được ứng dụng rất nhiều trong cuộc sống hiện nay như làm biển quảng cáo hay trang trí trong các quán bar, phòng hát karaoke...",
+    "Price": 139000,
+    "Image": "https://bizweb.dktcdn.net/100/228/168/files/day-50-den-led-phao-hoa-full-mau.jpg?v=1610507865371",
+    "CategoryId": 4
+  }
+]

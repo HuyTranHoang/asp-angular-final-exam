@@ -1,0 +1,51 @@
+<section class="d-flex justify-content-between mb-4">
+  <div class="d-flex align-items-center">
+
+    <app-filter-sort [listItems]="categories"
+                     class="me-3"
+                     [title]="'Category'"
+                     [selectedItem]="productParams.categoryId"
+                     (itemSelected)="onCategorySelected($event)"></app-filter-sort>
+
+
+    <app-filter-sort [listItems]="sortOptions"
+                     [title]="'Sort'"
+                     [selectedItem]="productParams.sortSelected"
+                     (itemSelected)="onSortSelected($event)"></app-filter-sort>
+
+  </div>
+
+  <div>
+    <label>Search</label>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <form #searchForm="ngForm" (ngSubmit)="onSearch()" class="position-relative">
+        <i (click)="onSearch()"
+           style="right: 5px"
+           class="fa fa-search text-dark position-absolute top-50 translate-middle"></i>
+        <input type="text"
+               name="search"
+               (keyup.escape)="onReset()"
+               [(ngModel)]="searchTerm"
+               class="form-control"
+               style="padding-right: 35px" placeholder="Search">
+      </form>
+      <button class="btn btn-primary ms-3" (click)="onReset()">
+        <i class="fa fa-refresh"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<div class="row row-cols-2 row-cols-md-4 g-4" *ngIf="products.length > 0; else noProductFound">
+  <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+</div>
+
+<ng-template #noProductFound>
+  <div class="d-flex justify-content-center align-items-center" style="height: 50vh">
+    <h3>No product found</h3>
+  </div>
+</ng-template>
+
+<app-pager [pagination]="pagination" (pageChanged)="onPageChanged($event)"></app-pager>

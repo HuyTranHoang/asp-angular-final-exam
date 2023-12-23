@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between align-content-center mt-3"
+     *ngIf="pagination">
+
+  <span class="ms-3" *ngIf="pagination">
+    Showing {{ (pagination.page - 1) * pagination.pageSize + 1 }} to
+    {{ getMax(pagination.page, pagination.pageSize, pagination.totalCount) }} of
+    {{ pagination.totalCount }} items
+  </span>
+
+  <pagination *ngIf="pagination && pagination.totalCount > pagination.pageSize"
+              [boundaryLinks]="true"
+              [totalItems]="pagination.totalCount"
+              [(ngModel)]="pagination.page"
+              [itemsPerPage]="pagination.pageSize"
+              (pageChanged)="onPageChanged($event)"
+              [customFirstTemplate]="firstTemplate"
+              [customLastTemplate]="lastTemplate"
+              [customPreviousTemplate]="prevTemplate"
+              [customNextTemplate]="nextTemplate">
+  </pagination>
+
+  <ng-template #nextTemplate>
+    <i class="fa fa-angle-right"></i>
+  </ng-template>
+
+  <ng-template #prevTemplate>
+    <i class="fa fa-angle-left"></i>
+  </ng-template>
+
+  <ng-template #firstTemplate>
+    <i class="fa fa-angle-double-left"></i>
+  </ng-template>
+
+  <ng-template #lastTemplate>
+    <i class="fa fa-angle-double-right"></i>
+  </ng-template>
+
+
+</div>

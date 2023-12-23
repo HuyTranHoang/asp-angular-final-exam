@@ -1,0 +1,19 @@
+<div class="col" *ngIf="product">
+  <div class="card card-hover h-100" routerLink="/shop/{{product.id}}">
+
+    <div class="img-wrapper rounded">
+      <img src="{{product.image.includes('http') ? product.image : 'https://localhost:5001/images/' + product.image}}"
+           class="img p-3" alt="{{product.name}}">
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title text-elipsis" style="min-height: 48px">{{product.name}}</h5>
+      <p class="text-success">{{product.price | currency:'VND'}}</p>
+      <p><i class="fa-solid fa-bars-staggered"></i> {{product.categoryName}}</p>
+      <button class="btn btn-primary w-100">
+        <i class="fa fa-cart-plus me-2"></i>
+        Add to cart
+      </button>
+    </div>
+  </div>
+</div>

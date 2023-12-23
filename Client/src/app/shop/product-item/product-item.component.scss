@@ -1,0 +1,29 @@
+.text-elipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.img-wrapper {
+  height: 300px;
+}
+
+.img {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+
+.card-hover {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-5px);
+    border: rgb(55, 90, 127) solid 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
