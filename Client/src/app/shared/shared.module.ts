@@ -6,10 +6,12 @@ import { BreadcrumbModule } from 'xng-breadcrumb'
 import { PagerComponent } from './pager/pager.component'
 import { FormsModule } from '@angular/forms'
 import { ModalModule } from 'ngx-bootstrap/modal'
+import { FilterSortComponent } from './filter-sort/filter-sort.component'
 
 @NgModule({
   declarations: [
     PagerComponent,
+    FilterSortComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { ModalModule } from 'ngx-bootstrap/modal'
   ],
   exports: [
     PagerComponent,
+    FilterSortComponent,
     PaginationModule,
     ToastrModule,
     BreadcrumbModule

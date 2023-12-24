@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment.development'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { PagedList } from '../../models/pagedList'
 import { Product } from '../../models/product'
+import { ProductParams } from '../../models/productParams'
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,22 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(pageSize: number, pageNumber: number) {
+  getProducts(productParams: ProductParams) {
     let params = new HttpParams()
 
-    params = params.append('pageNumber', pageNumber.toString())
+    if (productParams.categoryId !== 0) {
+      params = params.append('categoryId', productParams.categoryId)
+    }
 
-    params = params.append('pageSize', pageSize.toString())
+    if (productParams.searchTerm) {
+      params = params.append('searchTerm', productParams.searchTerm)
+    }
+
+    params = params.append('pageNumber', productParams.pageNumber.toString())
+
+    params = params.append('pageSize', productParams.pageSize.toString())
+
+    params = params.append('sort', productParams.sortSelected)
 
     return this.http.get<PagedList<Product[]>>(this.baseUrl + 'products', { params })
   }

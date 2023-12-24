@@ -4,6 +4,9 @@ import { Product } from '../../models/product'
 import { Pagination } from '../../models/pagination'
 import { ToastrService } from 'ngx-toastr'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
+import { Category } from '../../models/category'
+import { CategoryService } from '../../services/admin/category.service'
+import { ProductParams } from '../../models/productParams'
 
 @Component({
   selector: 'app-product',
@@ -13,20 +16,36 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 export class ProductComponent implements OnInit {
 
   products: Product[] = []
-  pagination: Pagination = {page: 1, pageSize: 4, totalCount: 0}
+  categories: Category[] = []
+
+  pagination : Pagination = {page: 1, pageSize: 4, totalCount: 0}
+  productParams = new ProductParams()
+  searchTerm = ''
+
+  sortOptions = [
+    {name: 'Tên: A -> Z', id: 'name'},
+    {name: 'Giá tăng dần', id: 'priceAsc'},
+    {name: 'Giá giảm dần', id: 'priceDesc'}
+  ]
 
   currentDeleteId?: number
+  currentDeleteName?: string
   modalRef?: BsModalRef;
   message?: string;
 
-  constructor(private productService: ProductService, private toastrService: ToastrService, private modalService: BsModalService) {}
+
+  constructor(private productService: ProductService,
+              private categoryService: CategoryService,
+              private toastrService: ToastrService,
+              private modalService: BsModalService) {}
 
   ngOnInit(): void {
+    this.loadCategory()
     this.loadProducts()
   }
 
   loadProducts() {
-    this.productService.getProducts(this.pagination.pageSize, this.pagination.page).subscribe({
+    this.productService.getProducts(this.productParams).subscribe({
       next: (response) => {
         this.pagination.page = response.page
         this.pagination.pageSize = response.pageSize
@@ -39,11 +58,36 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  onPageChanged(event: any) {
-    this.pagination.page = event
+  loadCategory() {
+    this.categoryService.getCategories().subscribe({
+      next: (response) => {
+        this.categories = [{id: 0, name: 'Tất cả'}, ...response]
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
+
+  onCategorySelected(event: any) {
+    this.productParams.categoryId = event.target.value
     this.loadProducts()
   }
 
+  onSortSelected(event: any) {
+    this.productParams.sortSelected = event.target.value
+    this.loadProducts()
+  }
+
+  onSearch() {
+    this.productParams.searchTerm = this.searchTerm
+    this.loadProducts()
+  }
+
+  onPageChanged(event: any) {
+    this.productParams.pageNumber = event
+    this.loadProducts()
+  }
 
   onDelete() {
     if (this.currentDeleteId){
@@ -61,9 +105,16 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  openModal(template: TemplateRef<void>, id: number) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  onReset() {
+    this.productParams = new ProductParams()
+    this.searchTerm = ''
+    this.loadProducts()
+  }
+
+  openModal(template: TemplateRef<void>, id: number, name: string) {
+    this.modalRef = this.modalService.show(template, { class: '' });
     this.currentDeleteId = id
+    this.currentDeleteName = name
   }
 
   confirm(): void {

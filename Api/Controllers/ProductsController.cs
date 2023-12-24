@@ -109,15 +109,15 @@ public class ProductsController : BaseApiController
 
             var productPath = Path.Combine(wwwRootPath, "images");
 
-            using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+            await using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
             {
-                file.CopyTo(fileStream);
+                await file.CopyToAsync(fileStream);
             }
             product.Image = fileName;
         }
         else
         {
-            product.Image = "noimage.jpg";
+            product.Image = "https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png";
         }
 
         _unitOfWork.ProductRespository.CreateProductAsync(product);

@@ -14,6 +14,8 @@ import { ToastrService } from 'ngx-toastr'
 export class CreateComponent implements OnInit {
   categories: Category[] = []
 
+  imageSrc: string | ArrayBuffer | null = null
+
   productForm = this.fb.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
@@ -49,9 +51,16 @@ export class CreateComponent implements OnInit {
     const file = event.target.files[0]
     this.productForm.patchValue({ file })
     this.productForm.get('file')?.updateValueAndValidity()
+
+    const reader = new FileReader();
+    reader.onload = _ => this.imageSrc = reader.result;
+
+    reader.readAsDataURL(file);
   }
 
   onSubmit() {
+    this.isSubmitted = true
+
     const formData = new FormData()
 
     formData.append('name', this.productForm.value.name!)
@@ -63,7 +72,7 @@ export class CreateComponent implements OnInit {
       const file = this.productForm.value.file as File
       formData.append('file', file)
     }
-    this.isSubmitted = true
+
 
     this.productService.createProduct(formData).subscribe({
       next: () => {
