@@ -1,7 +1,8 @@
 <ng-container *ngIf="product">
   <div class="row">
     <div class="col-4">
-      <img src="{{product.image}}" alt="{{product.name}}" class="w-100 img-fluid">
+      <img src="{{product.image.includes('http') ? product.image : 'https://localhost:5001/images/' + product.image}}"
+           class="w-100 img-fluid" alt="{{product.name}}">
     </div>
 
     <div class="col-8">
@@ -11,14 +12,14 @@
         <i class="fa fa-minus-circle"></i>
         <span class="fw-bold mx-2">{{ quantity }}</span>
         <i class="fa fa-plus-circle"></i>
-        <button class="btn btn-lg btn-outline-success ms-4">Update cart</button>
+        <button class="btn btn-lg btn-outline-success ms-4">Cập nhật giỏ hàng</button>
       </div>
 
       <div class="row mt-5">
         <div class="col-12">
-          <h4>Description</h4>
+          <h4>Mô tả</h4>
           <p>{{ product.description }}</p>
-          <button routerLink="/shop" class="btn btn-primary">Back to shop</button>
+          <button routerLink="/shop" class="btn btn-primary">Trở về cửa hàng</button>
         </div>
       </div>
     </div>

@@ -20,9 +20,9 @@ export class ShopComponent implements OnInit {
   searchTerm = ''
 
   sortOptions = [
-    {name: 'Alphabetical', id: 'name'},
-    {name: 'Price: Low to High', id: 'priceAsc'},
-    {name: 'Price: High to Low', id: 'priceDesc'}
+    {name: 'Tên: A -> Z', id: 'name'},
+    {name: 'Giá tăng dần', id: 'priceAsc'},
+    {name: 'Giá giảm dần', id: 'priceDesc'}
   ]
 
   constructor(public shopService: ShopService) {}
@@ -49,7 +49,7 @@ export class ShopComponent implements OnInit {
   loadCategory() {
     this.shopService.getCategories().subscribe({
       next: (response) => {
-        this.categories = [{id: 0, name: 'All'}, ...response]
+        this.categories = [{id: 0, name: 'Tất cả'}, ...response]
       },
       error: (error) => {
         console.log(error)

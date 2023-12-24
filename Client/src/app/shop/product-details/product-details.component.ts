@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { Product } from '../../models/product'
 import { ShopService } from '../../services/shop.service'
 import { ActivatedRoute } from '@angular/router'
-import { Observable } from 'rxjs'
 import { BreadcrumbService } from 'xng-breadcrumb'
 
 @Component({
@@ -23,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
       this.shopService.getProduct(id).subscribe({
         next: product => {
           this.product = product
-          this.bcService.set('@productDetails', product.name)
+          this.bcService.set('@Chi tiết sản phẩm', product.name)
         },
         error: err => console.log(err)
       })

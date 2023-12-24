@@ -10,9 +10,9 @@
       <h5 class="card-title text-elipsis" style="min-height: 48px">{{product.name}}</h5>
       <p class="text-success">{{product.price | currency:'VND'}}</p>
       <p><i class="fa-solid fa-bars-staggered"></i> {{product.categoryName}}</p>
-      <button class="btn btn-primary w-100">
+      <button class="btn btn-primary w-100" (click)="addToCart($event)">
         <i class="fa fa-cart-plus me-2"></i>
-        Add to cart
+        Thêm vào giỏ hàng
       </button>
     </div>
   </div>

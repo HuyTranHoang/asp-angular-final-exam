@@ -2,9 +2,9 @@
      *ngIf="pagination">
 
   <span class="ms-3" *ngIf="pagination">
-    Showing {{ (pagination.page - 1) * pagination.pageSize + 1 }} to
-    {{ getMax(pagination.page, pagination.pageSize, pagination.totalCount) }} of
-    {{ pagination.totalCount }} items
+    Hiển thị <b>{{ (pagination.page - 1) * pagination.pageSize + 1 }}</b> đến
+    <b>{{ getMax(pagination.page, pagination.pageSize, pagination.totalCount) }}</b> trong
+    <b>{{ pagination.totalCount }}</b> sản phẩm
   </span>
 
   <pagination *ngIf="pagination && pagination.totalCount > pagination.pageSize"

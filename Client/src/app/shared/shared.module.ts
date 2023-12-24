@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr'
 import { BreadcrumbModule } from 'xng-breadcrumb'
 import { PagerComponent } from './pager/pager.component'
 import { FormsModule } from '@angular/forms'
+import { ModalModule } from 'ngx-bootstrap/modal'
 
 @NgModule({
   declarations: [
@@ -14,10 +15,14 @@ import { FormsModule } from '@angular/forms'
     CommonModule,
     PaginationModule.forRoot(),
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right'
+      timeOut: 2000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+      extendedTimeOut: 1500,
     }),
     BreadcrumbModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   exports: [
     PagerComponent,

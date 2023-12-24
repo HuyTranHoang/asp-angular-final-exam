@@ -3,20 +3,20 @@
 
     <app-filter-sort [listItems]="categories"
                      class="me-3"
-                     [title]="'Category'"
+                     [title]="'Lọc theo danh mục'"
                      [selectedItem]="productParams.categoryId"
                      (itemSelected)="onCategorySelected($event)"></app-filter-sort>
 
 
     <app-filter-sort [listItems]="sortOptions"
-                     [title]="'Sort'"
+                     [title]="'Sắp xếp'"
                      [selectedItem]="productParams.sortSelected"
                      (itemSelected)="onSortSelected($event)"></app-filter-sort>
 
   </div>
 
   <div>
-    <label>Search</label>
+    <label>Tìm kiếm</label>
 
     <div class="d-flex justify-content-center align-items-center">
       <form #searchForm="ngForm" (ngSubmit)="onSearch()" class="position-relative">
@@ -28,7 +28,7 @@
                (keyup.escape)="onReset()"
                [(ngModel)]="searchTerm"
                class="form-control"
-               style="padding-right: 35px" placeholder="Search">
+               style="padding-right: 35px" placeholder="Tên linh kiện..">
       </form>
       <button class="btn btn-primary ms-3" (click)="onReset()">
         <i class="fa fa-refresh"></i>
