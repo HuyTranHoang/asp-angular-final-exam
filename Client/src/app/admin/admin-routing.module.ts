@@ -5,6 +5,7 @@ import { ProductComponent } from './product/product.component'
 import { CreateComponent } from './product/create/create.component'
 import { AdminComponent } from './admin.component'
 import { CategoryComponent } from './category/category.component'
+import { EditComponent } from './product/edit/edit.component'
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'product', pathMatch: 'full'},
       {path: 'product', component: ProductComponent, data: {breadcrumb: {alias: 'Danh sách sản phẩm'}}},
       {path: 'product/create', component: CreateComponent, data: {breadcrumb: {alias: 'Thêm mới sản phẩm'}}},
-      {path: 'product/:id/edit', component: CreateComponent, data: {breadcrumb: {alias: 'Sửa sản phẩm'}}},
+      {path: 'product/:id/edit', component: EditComponent, data: {breadcrumb: {alias: 'Sửa sản phẩm'}}},
       {path: 'category', component: CategoryComponent, data: {breadcrumb: {alias: 'Danh sách danh mục'}}},
     ]
   }

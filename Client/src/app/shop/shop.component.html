@@ -42,9 +42,12 @@
 </div>
 
 <ng-template #noProductFound>
-  <div class="d-flex justify-content-center align-items-center" style="height: 50vh">
-    <h3>No product found</h3>
+  <div class="d-flex flex-column justify-content-center align-items-center" style="height: 50vh">
+    <img src="https://infiniti.navigation.com/static/WFS/Shop-Site/-/Shop/en_US/Product%20Not%20Found.png"
+      style="width: 300px;"
+      alt="not found product">
+    <h3>Không tìm thấy sản phẩm nào</h3>
   </div>
 </ng-template>
 
-<app-pager [pagination]="pagination" (pageChanged)="onPageChanged($event)"></app-pager>
+<app-pager *ngIf="products.length > 0" [pagination]="pagination" (pageChanged)="onPageChanged($event)"></app-pager>

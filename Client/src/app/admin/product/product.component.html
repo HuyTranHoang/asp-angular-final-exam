@@ -62,7 +62,7 @@
     <td>{{product.categoryName}}</td>
     <td>{{product.price}}</td>
     <td>
-      <button class="btn btn-success me-2"><i class="fa fa-pencil"></i></button>
+      <button class="btn btn-success me-2" routerLink="/admin/product/{{product.id}}/edit"><i class="fa fa-pencil"></i></button>
       <button (click)="openModal(confirmDelete, product.id, product.name)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
     </td>
   </tr>

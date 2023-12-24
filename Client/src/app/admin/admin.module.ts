@@ -6,7 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { CreateComponent } from './product/create/create.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
-import { CategoryComponent } from './category/category.component'
+import { CategoryComponent } from './category/category.component';
+import { EditComponent } from './product/edit/edit.component'
 
 
 
@@ -15,7 +16,8 @@ import { CategoryComponent } from './category/category.component'
     ProductComponent,
     CreateComponent,
     AdminComponent,
-    CategoryComponent
+    CategoryComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,

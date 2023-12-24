@@ -52,7 +52,9 @@ public class ProductsController : BaseApiController
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutProduct(int id, [FromForm] Product product, [FromForm] IFormFile file)
+    public async Task<IActionResult> PutProduct(int id, [FromForm] Product product,
+    [FromForm] string oldImage,
+    [FromForm] IFormFile file)
     {
         if (id != product.Id)
         {
@@ -69,15 +71,22 @@ public class ProductsController : BaseApiController
                 var productPath = Path.Combine(wwwRootPath, "images");
 
                 // Delete image old image from wwwroot/image
-                var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "images", product.Image);
-                if (System.IO.File.Exists(imagePath))
-                    System.IO.File.Delete(imagePath);
+                if (product.Image != null && !product.Image.Contains("http"))
+                {
+                    var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "images", product.Image);
+                    if (System.IO.File.Exists(imagePath))
+                        System.IO.File.Delete(imagePath);
+                }
 
                 using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
                 {
                     file.CopyTo(fileStream);
                 }
                 product.Image = fileName;
+            }
+            else
+            {
+                product.Image = oldImage;
             }
 
             _unitOfWork.ProductRespository.UpdateProductAsync(product);
@@ -136,9 +145,12 @@ public class ProductsController : BaseApiController
         }
 
         // Delete image from wwwroot/image
-        var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "images", product.Image);
-        if (System.IO.File.Exists(imagePath))
-            System.IO.File.Delete(imagePath);
+        if (product.Image != null && !product.Image.Contains("http"))
+        {
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "images", product.Image);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+        }
 
         _unitOfWork.ProductRespository.DeleteProductAsync(product);
 
