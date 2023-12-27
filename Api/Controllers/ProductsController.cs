@@ -70,7 +70,7 @@ public class ProductsController : BaseApiController
 
                 var productPath = Path.Combine(wwwRootPath, "images");
 
-                // Delete image old image from wwwroot/image
+                // Delete image old image from wwwroot/image   
                 if (product.Image != null && !product.Image.Contains("http"))
                 {
                     var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "images", product.Image);
