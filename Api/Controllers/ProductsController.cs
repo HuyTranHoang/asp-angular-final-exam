@@ -1,5 +1,6 @@
 ﻿using Api.Dtos;
 using Api.Entities;
+using Api.Exceptions;
 using Api.Helpers;
 using Api.Responsitory.Interface;
 using AutoMapper;
@@ -43,7 +44,7 @@ public class ProductsController : BaseApiController
 
         if (product == null)
         {
-            return NotFound();
+            return NotFound(new ApiResponse(404));
         }
 
         var productToReturn = _mapper.Map<ProductDto>(product);
@@ -58,7 +59,7 @@ public class ProductsController : BaseApiController
     {
         if (id != product.Id)
         {
-            return BadRequest();
+            return BadRequest(new ApiResponse(400));
         }
 
         try
@@ -96,11 +97,11 @@ public class ProductsController : BaseApiController
         {
             if (!ProductExists(id))
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
             else
             {
-                throw;
+                throw new Exception("Error update product");
             }
         }
 
