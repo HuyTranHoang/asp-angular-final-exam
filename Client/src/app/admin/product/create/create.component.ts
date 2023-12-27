@@ -79,6 +79,7 @@ export class CreateComponent implements OnInit {
         this.toastrService.success('Thêm sản phẩm thành công')
         this.isSubmitted = false
         this.productForm.reset()
+        this.imageSrc = null
       },
       error: (error) => {
         console.log(error)
